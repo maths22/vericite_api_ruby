@@ -18,7 +18,7 @@ describe 'ReportScoreReponse' do
 
   describe 'test an instance of ReportScoreReponse' do
     it 'should create an instact of ReportScoreReponse' do
-      @instance.should be_a(VeriCiteClient::ReportScoreReponse) 
+      @instance.should be_a(VeriCiteClient::ReportScoreReponse)
     end
   end
   describe 'test attribute "user"' do
@@ -61,5 +61,14 @@ describe 'ReportScoreReponse' do
     end
   end
 
-end
+  describe 'test attribute "preliminary"' do
+    it 'should work' do
+       # assertion here
+       # should be_a()
+       # should be_nil
+       # should ==
+       # should_not ==
+    end
+  end
 
+end

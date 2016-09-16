@@ -14,18 +14,22 @@ module VeriCiteClient
 
     attr_accessor :score
 
+    attr_accessor :preliminary
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        
+
         :'user' => :'user',
-        
+
         :'assignment' => :'assignment',
-        
+
         :'external_content_id' => :'externalContentId',
-        
-        :'score' => :'score'
-        
+
+        :'score' => :'score',
+
+        :'preliminary' => :'preliminary'
+
       }
     end
 
@@ -35,8 +39,9 @@ module VeriCiteClient
         :'user' => :'String',
         :'assignment' => :'String',
         :'external_content_id' => :'String',
-        :'score' => :'Integer'
-        
+        :'score' => :'Integer',
+        :'preliminary' => :'BOOLEAN'
+
       }
     end
 
@@ -46,23 +51,27 @@ module VeriCiteClient
       # convert string to symbol for hash key
       attributes = attributes.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
 
-      
+
       if attributes[:'user']
         self.user = attributes[:'user']
       end
-      
+
       if attributes[:'assignment']
         self.assignment = attributes[:'assignment']
       end
-      
+
       if attributes[:'externalContentId']
         self.external_content_id = attributes[:'externalContentId']
       end
-      
+
       if attributes[:'score']
         self.score = attributes[:'score']
       end
-      
+
+      if attributes.has_key?(:'preliminary')
+        self.preliminary = attributes[:'preliminary']
+      end
+
     end
 
     # Check equality by comparing each attribute.
@@ -72,7 +81,8 @@ module VeriCiteClient
           user == o.user &&
           assignment == o.assignment &&
           external_content_id == o.external_content_id &&
-          score == o.score
+          score == o.score &&
+          preliminary == o.preliminary
     end
 
     # @see the `==` method
@@ -82,7 +92,7 @@ module VeriCiteClient
 
     # Calculate hash code according to all attributes.
     def hash
-      [user, assignment, external_content_id, score].hash
+      [user, assignment, external_content_id, score, preliminary].hash
     end
 
     # build the object from hash
