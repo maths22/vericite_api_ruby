@@ -71,6 +71,16 @@ describe 'AssignmentData' do
     end
   end
 
+  describe 'test attribute "assignment_enable_student_preview"' do
+    it 'should work' do
+       # assertion here
+       # should be_a()
+       # should be_nil
+       # should ==
+       # should_not ==
+    end
+  end
+
   describe 'test attribute "assignment_due_date"' do
     it 'should work' do
        # assertion here

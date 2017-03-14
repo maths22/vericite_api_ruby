@@ -21,6 +21,9 @@ module VeriCiteClient
     # store in index
     attr_accessor :assignment_store_in_index
 
+    # enable student preview:
+    attr_accessor :assignment_enable_student_preview
+
     # Assignment due date. Pass in 0 to delete.
     attr_accessor :assignment_due_date
 
@@ -43,6 +46,8 @@ module VeriCiteClient
 
         :'assignment_store_in_index' => :'assignmentStoreInIndex',
 
+        :'assignment_enable_student_preview' => :'assignmentEnableStudentPreview',
+
         :'assignment_due_date' => :'assignmentDueDate',
 
         :'assignment_grade' => :'assignmentGrade',
@@ -60,6 +65,7 @@ module VeriCiteClient
         :'assignment_exclude_quotes' => :'BOOLEAN',
         :'assignment_exclude_self_plag' => :'BOOLEAN',
         :'assignment_store_in_index' => :'BOOLEAN',
+        :'assignment_enable_student_preview' => :'BOOLEAN',
         :'assignment_due_date' => :'Integer',
         :'assignment_grade' => :'Integer',
         :'assignment_attachment_external_content' => :'Array<ExternalContentData>'
@@ -94,6 +100,10 @@ module VeriCiteClient
         self.assignment_store_in_index = attributes[:'assignmentStoreInIndex']
       end
 
+      if attributes[:'assignmentEnableStudentPreview']
+        self.assignment_enable_student_preview = attributes[:'assignmentEnableStudentPreview']
+      end
+
       if attributes[:'assignmentDueDate']
         self.assignment_due_date = attributes[:'assignmentDueDate']
       end
@@ -119,6 +129,7 @@ module VeriCiteClient
           assignment_exclude_quotes == o.assignment_exclude_quotes &&
           assignment_exclude_self_plag == o.assignment_exclude_self_plag &&
           assignment_store_in_index == o.assignment_store_in_index &&
+          assignment_enable_student_preview == o.assignment_enable_student_preview &&
           assignment_due_date == o.assignment_due_date &&
           assignment_grade == o.assignment_grade &&
           assignment_attachment_external_content == o.assignment_attachment_external_content
