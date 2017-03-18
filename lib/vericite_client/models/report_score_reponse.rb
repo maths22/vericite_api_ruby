@@ -16,6 +16,8 @@ module VeriCiteClient
 
     attr_accessor :preliminary
 
+    attr_accessor :draft
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -28,7 +30,9 @@ module VeriCiteClient
 
         :'score' => :'score',
 
-        :'preliminary' => :'preliminary'
+        :'preliminary' => :'preliminary',
+
+        :'draft' => :'draft'
 
       }
     end
@@ -40,7 +44,8 @@ module VeriCiteClient
         :'assignment' => :'String',
         :'external_content_id' => :'String',
         :'score' => :'Integer',
-        :'preliminary' => :'BOOLEAN'
+        :'preliminary' => :'BOOLEAN',
+        :'draft' => :'BOOLEAN'
 
       }
     end
@@ -72,6 +77,10 @@ module VeriCiteClient
         self.preliminary = attributes[:'preliminary']
       end
 
+      if attributes.has_key?(:'draft')
+        self.draft = attributes[:'draft']
+      end
+
     end
 
     # Check equality by comparing each attribute.
@@ -82,7 +91,8 @@ module VeriCiteClient
           assignment == o.assignment &&
           external_content_id == o.external_content_id &&
           score == o.score &&
-          preliminary == o.preliminary
+          preliminary == o.preliminary &&
+          draft == o.draft
     end
 
     # @see the `==` method
@@ -92,7 +102,7 @@ module VeriCiteClient
 
     # Calculate hash code according to all attributes.
     def hash
-      [user, assignment, external_content_id, score, preliminary].hash
+      [user, assignment, external_content_id, score, preliminary, draft].hash
     end
 
     # build the object from hash

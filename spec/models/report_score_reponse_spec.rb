@@ -71,4 +71,14 @@ describe 'ReportScoreReponse' do
     end
   end
 
+  describe 'test attribute "draft"' do
+    it 'should work' do
+       # assertion here
+       # should be_a()
+       # should be_nil
+       # should ==
+       # should_not ==
+    end
+  end
+
 end
