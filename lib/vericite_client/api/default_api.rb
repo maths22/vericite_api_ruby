@@ -12,54 +12,57 @@ module VeriCiteClient
       @api_client = api_client
     end
 
-    # 
+    #
     # Create/update assignment
     # @param context_id Context ID
     # @param assignment_id ID of assignment
     # @param consumer the consumer
     # @param consumer_secret the consumer secret
-    # @param assignment_data 
+    # @param assignment_data
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :encrypted Flag to indicate encryption
     # @return [Array<ExternalContentUploadInfo>]
     def assignments_context_id_assignment_id_post(context_id, assignment_id, consumer, consumer_secret, assignment_data, opts = {})
       data, status_code, headers = assignments_context_id_assignment_id_post_with_http_info(context_id, assignment_id, consumer, consumer_secret, assignment_data, opts)
       return data, status_code, headers
     end
 
-    # 
+    #
     # Create/update assignment
     # @param context_id Context ID
     # @param assignment_id ID of assignment
     # @param consumer the consumer
     # @param consumer_secret the consumer secret
-    # @param assignment_data 
+    # @param assignment_data
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :encrypted Flag to indicate encryption
     # @return [Array<(Array<ExternalContentUploadInfo>, Fixnum, Hash)>] Array<ExternalContentUploadInfo> data, response status code and response headers
     def assignments_context_id_assignment_id_post_with_http_info(context_id, assignment_id, consumer, consumer_secret, assignment_data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: DefaultApi#assignments_context_id_assignment_id_post ..."
       end
-      
+
       # verify the required parameter 'context_id' is set
       fail "Missing the required parameter 'context_id' when calling assignments_context_id_assignment_id_post" if context_id.nil?
-      
+
       # verify the required parameter 'assignment_id' is set
       fail "Missing the required parameter 'assignment_id' when calling assignments_context_id_assignment_id_post" if assignment_id.nil?
-      
+
       # verify the required parameter 'consumer' is set
       fail "Missing the required parameter 'consumer' when calling assignments_context_id_assignment_id_post" if consumer.nil?
-      
+
       # verify the required parameter 'consumer_secret' is set
       fail "Missing the required parameter 'consumer_secret' when calling assignments_context_id_assignment_id_post" if consumer_secret.nil?
-      
+
       # verify the required parameter 'assignment_data' is set
       fail "Missing the required parameter 'assignment_data' when calling assignments_context_id_assignment_id_post" if assignment_data.nil?
-      
+
       # resource path
       local_var_path = "/assignments/{contextID}/{assignmentID}".sub('{format}','json').sub('{' + 'contextID' + '}', context_id.to_s).sub('{' + 'assignmentID' + '}', assignment_id.to_s)
 
       # query parameters
       query_params = {}
+      query_params[:'encrypted'] = opts[:'encrypted'] if !opts[:'encrypted'].nil?
 
       # header parameters
       header_params = {}
@@ -79,7 +82,7 @@ module VeriCiteClient
 
       # http body (model)
       post_body = @api_client.object_to_http_body(assignment_data)
-      
+
       auth_names = []
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -94,7 +97,7 @@ module VeriCiteClient
       return data, status_code, headers
     end
 
-    # 
+    #
     # Retrieves scores for the reports
     # @param context_id Context ID
     # @param consumer the consumer
@@ -109,7 +112,7 @@ module VeriCiteClient
       return data, status_code, headers
     end
 
-    # 
+    #
     # Retrieves scores for the reports
     # @param context_id Context ID
     # @param consumer the consumer
@@ -123,16 +126,16 @@ module VeriCiteClient
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: DefaultApi#reports_scores_context_id_get ..."
       end
-      
+
       # verify the required parameter 'context_id' is set
       fail "Missing the required parameter 'context_id' when calling reports_scores_context_id_get" if context_id.nil?
-      
+
       # verify the required parameter 'consumer' is set
       fail "Missing the required parameter 'consumer' when calling reports_scores_context_id_get" if consumer.nil?
-      
+
       # verify the required parameter 'consumer_secret' is set
       fail "Missing the required parameter 'consumer_secret' when calling reports_scores_context_id_get" if consumer_secret.nil?
-      
+
       # resource path
       local_var_path = "/reports/scores/{contextID}".sub('{format}','json').sub('{' + 'contextID' + '}', context_id.to_s)
 
@@ -160,7 +163,7 @@ module VeriCiteClient
 
       # http body (model)
       post_body = nil
-      
+
       auth_names = []
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
@@ -175,59 +178,62 @@ module VeriCiteClient
       return data, status_code, headers
     end
 
-    # 
+    #
     # Request a file submission
     # @param context_id Context ID
     # @param assignment_id ID of assignment
     # @param user_id ID of user
     # @param consumer the consumer
     # @param consumer_secret the consumer secret
-    # @param report_meta_data 
+    # @param report_meta_data
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :encrypted Flag to indicate encryption
     # @return [Array<ExternalContentUploadInfo>]
     def reports_submit_request_context_id_assignment_id_user_id_post(context_id, assignment_id, user_id, consumer, consumer_secret, report_meta_data, opts = {})
       data, status_code, headers = reports_submit_request_context_id_assignment_id_user_id_post_with_http_info(context_id, assignment_id, user_id, consumer, consumer_secret, report_meta_data, opts)
       return data, status_code, headers
     end
 
-    # 
+    #
     # Request a file submission
     # @param context_id Context ID
     # @param assignment_id ID of assignment
     # @param user_id ID of user
     # @param consumer the consumer
     # @param consumer_secret the consumer secret
-    # @param report_meta_data 
+    # @param report_meta_data
     # @param [Hash] opts the optional parameters
+    # @option opts [BOOLEAN] :encrypted Flag to indicate encryption
     # @return [Array<(Array<ExternalContentUploadInfo>, Fixnum, Hash)>] Array<ExternalContentUploadInfo> data, response status code and response headers
     def reports_submit_request_context_id_assignment_id_user_id_post_with_http_info(context_id, assignment_id, user_id, consumer, consumer_secret, report_meta_data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: DefaultApi#reports_submit_request_context_id_assignment_id_user_id_post ..."
       end
-      
+
       # verify the required parameter 'context_id' is set
       fail "Missing the required parameter 'context_id' when calling reports_submit_request_context_id_assignment_id_user_id_post" if context_id.nil?
-      
+
       # verify the required parameter 'assignment_id' is set
       fail "Missing the required parameter 'assignment_id' when calling reports_submit_request_context_id_assignment_id_user_id_post" if assignment_id.nil?
-      
+
       # verify the required parameter 'user_id' is set
       fail "Missing the required parameter 'user_id' when calling reports_submit_request_context_id_assignment_id_user_id_post" if user_id.nil?
-      
+
       # verify the required parameter 'consumer' is set
       fail "Missing the required parameter 'consumer' when calling reports_submit_request_context_id_assignment_id_user_id_post" if consumer.nil?
-      
+
       # verify the required parameter 'consumer_secret' is set
       fail "Missing the required parameter 'consumer_secret' when calling reports_submit_request_context_id_assignment_id_user_id_post" if consumer_secret.nil?
-      
+
       # verify the required parameter 'report_meta_data' is set
       fail "Missing the required parameter 'report_meta_data' when calling reports_submit_request_context_id_assignment_id_user_id_post" if report_meta_data.nil?
-      
+
       # resource path
       local_var_path = "/reports/submit/request/{contextID}/{assignmentID}/{userID}".sub('{format}','json').sub('{' + 'contextID' + '}', context_id.to_s).sub('{' + 'assignmentID' + '}', assignment_id.to_s).sub('{' + 'userID' + '}', user_id.to_s)
 
       # query parameters
       query_params = {}
+      query_params[:'encrypted'] = opts[:'encrypted'] if !opts[:'encrypted'].nil?
 
       # header parameters
       header_params = {}
@@ -247,7 +253,7 @@ module VeriCiteClient
 
       # http body (model)
       post_body = @api_client.object_to_http_body(report_meta_data)
-      
+
       auth_names = []
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -262,7 +268,7 @@ module VeriCiteClient
       return data, status_code, headers
     end
 
-    # 
+    #
     # Retrieves URLS for the reports
     # @param context_id Context ID
     # @param assignment_id_filter ID of assignment to filter results on
@@ -279,7 +285,7 @@ module VeriCiteClient
       return data, status_code, headers
     end
 
-    # 
+    #
     # Retrieves URLS for the reports
     # @param context_id Context ID
     # @param assignment_id_filter ID of assignment to filter results on
@@ -295,25 +301,25 @@ module VeriCiteClient
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: DefaultApi#reports_urls_context_id_get ..."
       end
-      
+
       # verify the required parameter 'context_id' is set
       fail "Missing the required parameter 'context_id' when calling reports_urls_context_id_get" if context_id.nil?
-      
+
       # verify the required parameter 'assignment_id_filter' is set
       fail "Missing the required parameter 'assignment_id_filter' when calling reports_urls_context_id_get" if assignment_id_filter.nil?
-      
+
       # verify the required parameter 'consumer' is set
       fail "Missing the required parameter 'consumer' when calling reports_urls_context_id_get" if consumer.nil?
-      
+
       # verify the required parameter 'consumer_secret' is set
       fail "Missing the required parameter 'consumer_secret' when calling reports_urls_context_id_get" if consumer_secret.nil?
-      
+
       # verify the required parameter 'token_user' is set
       fail "Missing the required parameter 'token_user' when calling reports_urls_context_id_get" if token_user.nil?
-      
+
       # verify the required parameter 'token_user_role' is set
       fail "Missing the required parameter 'token_user_role' when calling reports_urls_context_id_get" if token_user_role.nil?
-      
+
       # resource path
       local_var_path = "/reports/urls/{contextID}".sub('{format}','json').sub('{' + 'contextID' + '}', context_id.to_s)
 
@@ -343,7 +349,7 @@ module VeriCiteClient
 
       # http body (model)
       post_body = nil
-      
+
       auth_names = []
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,

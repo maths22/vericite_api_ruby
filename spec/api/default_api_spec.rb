@@ -21,16 +21,17 @@ describe 'DefaultApi' do
     end
   end
 
-  
+
   # unit tests for assignments_context_id_assignment_id_post
-  # 
+  #
   # Create/update assignment
   # @param context_id Context ID
   # @param assignment_id ID of assignment
   # @param consumer the consumer
   # @param consumer_secret the consumer secret
-  # @param assignment_data 
+  # @param assignment_data
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :encrypted Flag to indicate encryption
   # @return [Array<ExternalContentUploadInfo>]
   describe 'assignments_context_id_assignment_id_post test' do
     it "should work" do
@@ -43,7 +44,7 @@ describe 'DefaultApi' do
   end
 
   # unit tests for reports_scores_context_id_get
-  # 
+  #
   # Retrieves scores for the reports
   # @param context_id Context ID
   # @param consumer the consumer
@@ -64,15 +65,16 @@ describe 'DefaultApi' do
   end
 
   # unit tests for reports_submit_request_context_id_assignment_id_user_id_post
-  # 
+  #
   # Request a file submission
   # @param context_id Context ID
   # @param assignment_id ID of assignment
   # @param user_id ID of user
   # @param consumer the consumer
   # @param consumer_secret the consumer secret
-  # @param report_meta_data 
+  # @param report_meta_data
   # @param [Hash] opts the optional parameters
+  # @option opts [BOOLEAN] :encrypted Flag to indicate encryption
   # @return [Array<ExternalContentUploadInfo>]
   describe 'reports_submit_request_context_id_assignment_id_user_id_post test' do
     it "should work" do
@@ -85,7 +87,7 @@ describe 'DefaultApi' do
   end
 
   # unit tests for reports_urls_context_id_get
-  # 
+  #
   # Retrieves URLS for the reports
   # @param context_id Context ID
   # @param assignment_id_filter ID of assignment to filter results on

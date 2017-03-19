@@ -21,20 +21,25 @@ module VeriCiteClient
     # The files content type
     attr_accessor :content_type
 
+    # A map of required headers
+    attr_accessor :headers
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        
+
         :'external_content_id' => :'externalContentID',
-        
+
         :'url_post' => :'urlPost',
-        
+
         :'file_path' => :'filePath',
-        
+
         :'content_length' => :'contentLength',
-        
-        :'content_type' => :'contentType'
-        
+
+        :'content_type' => :'contentType',
+
+        :'headers' => :'headers'
+
       }
     end
 
@@ -45,8 +50,9 @@ module VeriCiteClient
         :'url_post' => :'String',
         :'file_path' => :'String',
         :'content_length' => :'Integer',
-        :'content_type' => :'String'
-        
+        :'content_type' => :'String',
+        :'headers' => :'Object'
+
       }
     end
 
@@ -56,27 +62,31 @@ module VeriCiteClient
       # convert string to symbol for hash key
       attributes = attributes.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
 
-      
+
       if attributes[:'externalContentID']
         self.external_content_id = attributes[:'externalContentID']
       end
-      
+
       if attributes[:'urlPost']
         self.url_post = attributes[:'urlPost']
       end
-      
+
       if attributes[:'filePath']
         self.file_path = attributes[:'filePath']
       end
-      
+
       if attributes[:'contentLength']
         self.content_length = attributes[:'contentLength']
       end
-      
+
       if attributes[:'contentType']
         self.content_type = attributes[:'contentType']
       end
-      
+
+      if attributes.has_key?(:'headers')
+        self.headers = attributes[:'headers']
+      end
+
     end
 
     # Check equality by comparing each attribute.
@@ -87,7 +97,8 @@ module VeriCiteClient
           url_post == o.url_post &&
           file_path == o.file_path &&
           content_length == o.content_length &&
-          content_type == o.content_type
+          content_type == o.content_type &&
+          headers == o.headers
     end
 
     # @see the `==` method
@@ -97,7 +108,7 @@ module VeriCiteClient
 
     # Calculate hash code according to all attributes.
     def hash
-      [external_content_id, url_post, file_path, content_length, content_type].hash
+      [external_content_id, url_post, file_path, content_length, content_type, headers].hash
     end
 
     # build the object from hash

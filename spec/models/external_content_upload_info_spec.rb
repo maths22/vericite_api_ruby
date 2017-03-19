@@ -18,7 +18,7 @@ describe 'ExternalContentUploadInfo' do
 
   describe 'test an instance of ExternalContentUploadInfo' do
     it 'should create an instact of ExternalContentUploadInfo' do
-      @instance.should be_a(VeriCiteClient::ExternalContentUploadInfo) 
+      @instance.should be_a(VeriCiteClient::ExternalContentUploadInfo)
     end
   end
   describe 'test attribute "external_content_id"' do
@@ -71,5 +71,10 @@ describe 'ExternalContentUploadInfo' do
     end
   end
 
-end
+  describe 'test attribute "headers"' do
+    it 'should work' do
+       
+    end
+  end
 
+end

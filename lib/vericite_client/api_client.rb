@@ -95,7 +95,7 @@ module VeriCiteClient
         req = Net::HTTP::Get.new(uri)
       when :delete
         req = Net::HTTP::Delete.new(uri)
-      end    
+      end
       req.body = req_body
       # Headers
       header_params.each do |key, value|
@@ -105,7 +105,7 @@ module VeriCiteClient
           key = "consumerSecret"
         end
         req.add_field(key, value)
-      end 
+      end
       res = https.start{|con|
         con.request(req)
       }
@@ -338,15 +338,16 @@ module VeriCiteClient
         fail "unknown collection format: #{collection_format.inspect}"
       end
     end
-    
-    def uploadfile(path, file)
+
+    def uploadfile(path, file, headers)
       url = URI.parse(path)
-      
+
+      headers ||= {}
+      # This is required, or Net::HTTP will add a default unsigned content-type.
+      headers["content-type"] = ""
+
       response = Net::HTTP.start(url.host) do |http|
-        http.send_request("PUT", url.request_uri, (file.is_a?(String) ? file : file.read), {
-          # This is required, or Net::HTTP will add a default unsigned content-type.
-          "content-type" => "",
-        })
+        http.send_request("PUT", url.request_uri, (file.is_a?(String) ? file : file.read), headers)
       end
       unless response.kind_of? Net::HTTPSuccess
         fail ApiError.new(:code => response.code,
