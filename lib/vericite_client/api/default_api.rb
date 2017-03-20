@@ -62,7 +62,8 @@ module VeriCiteClient
 
       # query parameters
       query_params = {}
-      query_params[:'encrypted'] = opts[:'encrypted'] if !opts[:'encrypted'].nil?
+      # always set encrypted to true (eventually this will not be required)
+      query_params[:'encrypted'] = true
 
       # header parameters
       header_params = {}
@@ -233,7 +234,8 @@ module VeriCiteClient
 
       # query parameters
       query_params = {}
-      query_params[:'encrypted'] = opts[:'encrypted'] if !opts[:'encrypted'].nil?
+      # always set encrypted to true (eventually this will not be required)
+      query_params[:'encrypted'] = true
 
       # header parameters
       header_params = {}
