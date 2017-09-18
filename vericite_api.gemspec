@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |s|
   s.name        = "vericite_api"
   s.description = "VeriCite API GEM"
-  s.version     = "1.5.2"
+  s.version     = "1.5.3"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Bryan Holladay"]
   s.email       = ["bryan@vericite.com"]

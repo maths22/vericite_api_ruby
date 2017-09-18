@@ -343,13 +343,13 @@ module VeriCiteClient
       url = URI.parse(path)
 
       headers ||= {}
-      if !headers.key?("content-type")
+      if !headers.stringify_keys.key?("content-type")
         # content-type is required, or Net::HTTP will add a default content-type, making the signature invalid
         headers["content-type"] = ""
       end
 
       response = Net::HTTP.start(url.host) do |http|
-        http.send_request("PUT", url.request_uri, (file.is_a?(String) ? file : file.read), headers)
+        http.send_request("PUT", url.request_uri, (file.is_a?(String) ? file : file.read), headers.stringify_keys)
       end
       unless response.kind_of? Net::HTTPSuccess
         fail ApiError.new(:code => response.code,
