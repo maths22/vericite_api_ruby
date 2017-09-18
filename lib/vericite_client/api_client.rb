@@ -343,8 +343,10 @@ module VeriCiteClient
       url = URI.parse(path)
 
       headers ||= {}
-      # This is required, or Net::HTTP will add a default unsigned content-type.
-      headers["content-type"] = ""
+      if !headers.key?("content-type")
+        # content-type is required, or Net::HTTP will add a default content-type, making the signature invalid
+        headers["content-type"] = ""
+      end
 
       response = Net::HTTP.start(url.host) do |http|
         http.send_request("PUT", url.request_uri, (file.is_a?(String) ? file : file.read), headers)
